@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Apps Challenge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Exo+2:wght@300;400;500;600;700&family=Audiowide&display=swap"
+        rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <canvas id="neural-bg"></canvas>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo-container">
+                <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Neural Network Logo -->
+                    <circle cx="50" cy="20" r="8" fill="none" stroke="#00ffff" stroke-width="2" />
+                    <circle cx="25" cy="50" r="8" fill="none" stroke="#ff00ff" stroke-width="2" />
+                    <circle cx="75" cy="50" r="8" fill="none" stroke="#ff00ff" stroke-width="2" />
+                    <circle cx="50" cy="80" r="8" fill="none" stroke="#ffff00" stroke-width="2" />
+
+                    <!-- Connections -->
+                    <line x1="50" y1="28" x2="25" y2="42" stroke="#00ffff" stroke-width="1" opacity="0.6" />
+                    <line x1="50" y1="28" x2="75" y2="42" stroke="#00ffff" stroke-width="1" opacity="0.6" />
+                    <line x1="25" y1="58" x2="50" y2="72" stroke="#ff00ff" stroke-width="1" opacity="0.6" />
+                    <line x1="75" y1="58" x2="50" y2="72" stroke="#ff00ff" stroke-width="1" opacity="0.6" />
+
+                    <!-- Center node -->
+                    <circle cx="50" cy="50" r="5" fill="#00ffff" />
+                    <line x1="50" y1="28" x2="50" y2="45" stroke="#00ffff" stroke-width="1" opacity="0.6" />
+                    <line x1="50" y1="55" x2="50" y2="72" stroke="#ffff00" stroke-width="1" opacity="0.6" />
+                    <line x1="33" y1="50" x2="45" y2="50" stroke="#ff00ff" stroke-width="1" opacity="0.6" />
+                    <line x1="55" y1="50" x2="67" y2="50" stroke="#ff00ff" stroke-width="1" opacity="0.6" />
+                </svg>
+                <span class="logo-text">Special Engieers</span>
+            </a>
+
+            <div class="mobile-menu-toggle" id="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="#home">PRINCIPLE</a></li>
+                    <li><a href="#projects">MITIGATION</a></li>
+                    <li><a href="#skills">METEORS</a></li>
+                    <li><a href="#about">INFORMATION</a></li>
+                    <li><a href="#contact">COMMENTS</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="glitch">METEORO MADDNES</h1>
+            <p class="subtitle">NASA Space Apps Challenge</p>
+            <p class="subtitle">S.I.A. (Asteroidal Impact Simulation) is an intuitive web platform
+                that allows users to visualize and graphically record the effects of asteroid impacts on Earth,
+                taking into account variables such as direction, size, density, and velocity.
+                Its goal is to provide clear and accurate information to combat misinformation and reduce the
+                uncertainty caused by false news.</p>
+        </div>
+        <a href="#about" class="scroll-btn">
+            <div class="scroll-btn-inner">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                </svg>
+            </div>
+        </a>
+    </section>
+
+
+    <section id="skill-card" class="fade-in">
+        <h2 class="section-title">SIMULATOR</h2>
+        <div class="skills-container">
+            <button class="skill-node">
+                <a href="https://sandcastle.cesium.com/#c=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"
+                    class="link-boton" aria-label="Ir a Ejemplo 1" target="_blank" rel="noopener noreferrer">SIMULATOR
+                    N°1</a>
+            </button>
+            <button class="skill-node">
+                <a href="https://sandcastle.cesium.com/#c=zRlLc9u4+a9gtHsgU4mi3g5tp/U6bpyZeJMmHvtQdTYQCUlYg4QWAGUrGc3sfXvqsZe0hx7zK/KH8hP6geADlGTF2XbatQ4W8D3xvQFhuUpCNE2TUFGeIJpQdUokTeOTJHpD45Rhve+46P04QajdRqeCYIFCniiSkIgLFBGgUkRM8TvkTLjiCZGuRgYcqTJMwZl8SpfoGEU8TGOSKC8ENoqcMaJXzrgR0eW44R7mdAWFJ9WKEW/BJc3UO0bjBp5IzlJFxo17sBVfZIgdf3F3LxIjU/VlrAkOb2aCp0mU4YrZBDt+M/t4Q/despAzMIymuJ3TPZoucBTRZGb0GOzTg4uIiNc4oqk02N092O+eJxG5y0/n72F692aOI36bYfrIR9oWqHbIg12HpElCxPnlxQsgfKuBCB1lLJ+YBUJeTBThojVRiQkc8xdRuWB4FaAJ4+HNYQW4pZGaB6jTBQWs7RiLGU0CNAS1fGs/t1tgFNaWs4DGVgFKIBC3tlsis6GhtKCZxwKUucvansKpW7eEzuYKlOYssklSITXNgmfhv0kl6TsCYvo1MUrgxIRygDBjyPd6EhEsa4qWMRcgRhPIttZMa63zpNMbRGTWRN/4fm86mmZfBo8nPbekX+9wQTDnSyJsR2R6TLmIAyRDzIjT8TpuzVh3LZnFRoCywBhUgYE6nUETdXvwTSfB12uuFc6+jHpkuKX5UbsIpXw976Ns53jcyOOhDFX/EClyp1qY0VkShCTzgzH/FMeUrQIJ52xJIuj0cNx48vnD339GF5ldqOLyqD3v5yF7NEmV0vUvAjGv/9QbjhsoZFhKLbU0JLDQsKO2wd5Feya47Pd695Hn4H0cLs77XXDvfRxy8F4O32uU/r0cDHgfh/OT7n3UAKpRvs0cWNb1CY9WHl4sSBKdzimLHKtwaF/Xugi4S5CEoxVaUsglZDpP1Ts0HNPkleBLCskL5QbfYqpyvLyHXHPBokuDeaK7mVO2EWCxpOQ2o0zIbUF3le1B0wmz9SloCLREjBtN9H5L6NpWW/PEEGYSTT99lDTEshKl6/hj76BjSX8GW0NvOOr3fNLq2JCLH8AAag7wgfd41CXdvgV8XQKHXm/UIcNKg6cYAlf33LgM44qu2gPSPN11wAZwLFOPugMf8nZJoP7SCEOejh7rjYhAWYL183iBQ6Wr2uhg5KN10/DIo7Zi0xltsBke7GbTg0gr2eShW9OmxqXnDx/CxsTvnkPpjS/zgUiuePQ2VBkMvshhnXulHJ6WMJdAEpzJKRHYEW7hAkFUKhLk9FEb9Vz0CF1gNfdePS++LfitI5oor+Jrw5URBXUPwuBFNve0hhAK/mhwWIdhPcS0ej2vM/APNvUhP5IwBTQzx4V6jltggWNZamayw4PEhaZEpCdIDK3ihDGnCHpL2HnWB0EeDBV+0Y411JhNrbQqRoBXWtJCi7HEgFK3Uo6vnaAtky837W5xmWNpdomeyaaYZc2zgmMJCcypBm6eDqYGp2yCFJw8bpzk2DCjNQtIMW0GRb04hcPDN5z0vKng8VMyE4RIp/BOs/RF0zaUWzIkjNGF5Fqi1YN1Z6SBXZcqObZZmui+RSVBj0pwEIpZpbSeaLzvXr+8/t67pWp+whZzaN/e44pqXR0Z6/HLUo4RHF3SGBLDb9bGBsrM9tDez8e34QP12VJgXUVb7jOQFN6Q6Ey7TsdV4dVNvFAPkh5PLin8A/+eLcHbL6jUlxPhlJmgAOxkuG51SjpFjhVNbp6npQgTT4usmBbyy6uINyPqCrOUGLYeTIPQypQ2TjXSaPoQnMqBQ26GsyIWvOtnbw76Xlj4/JJr93MYmBZzGjogp+JjqntEmMJagE5BKCVD31K1zMHWMTSiRxVyTRkItjKLM8W8uVn+rmJQp7WNVVEfHSPftePFZmxP6vVsVSK1eRYHu6IAyyqh/Ekop6yJm7UEpk4XNHW6oOMzXTxNm3TBFnnHdA83eT/9YUoTzECAnVNA3NXlpjM4tGMevC04BE2kpQFJQQzH7UPJQ78vdx7B7NtFQW3d2Toa1xdNPnOqXZiXPn/46z+qITRA377PFUt4PBFkPR4nV8WJETUFUGNdUbjZ/pHekcjpumsUtyVgnopP/1T6tvPte6fQpZ0VaLfEtqUj1LWXwOcmBjavqmNnClXLkouvZb6tiN3aaWEy+fzhb/9CuT5oJqiEcSSivAVTpOBNNM8YcrTpoFDoSnGa35hrxUIX21Mps8UbJeDGBzPbNwOsP+OGWytr/cG27w3rl6nSl5GHMYdBDD6bzA+2eeveqvBXqD3C+rPJubdlxtNPH0WYMo5kuoAKmj2wMDiKsauTm9GtaPZ2uYf0M/2sANckxxQExpMZVWkErSbfwCpft+zs0BHfsztQ0edIrZHoP0lieoF/5OLkjsoqZ9qo29yBSJMvI1bdxQqfDZx5fm3f1noDkZsACbLytBt2ap4HagG1G/PatMK6wmtrtd7y+CvtDvOGluCiAmHb7b8JZ4/qzg5XcNzsoWXD24wkM20Ci37DVIovXufPMPe7eMLhihlv4/V/RSj8Nzy834dQ1H9BJwllkLj6cpYrhcjdImUSQ91zYrhmfvqoU/u3kbyd/yh5NYfhw9J3F2rlNauQPjSBO/+DBO54g69w/5miP6VEYchi/aoGRl/i/4eT/bpPGZ4QtuVR/WQWoLc75o6HTBNde2bYPyxsGHgBIPZyOpVE7b72dPXrYqu/cQhkniiDHVE0hXzLPVvrwNfnzy/P9ruvfHMsvm5N+FZb/5XeKIfiQuC6dsOHSEGOmSZuyApCx3q/KYdrA9fv6NaPJ3D3yH85+W71PHKAupCgx3RAtmZzWMH9KGRwA9JDsIuOn9gBYfjrH0wq4X8Ghn+xn9vzEAEkgFiAXQ8MlnGLU+dnzo597w9McBNS4dxxiBCZjsX8DGsusl3NudFsWD81/AHGYy4USgVzPK+tSLwAdkS2JyncHpUXyuwSVT0pH0V0aV44t57+ytfOacrYG7gjjBtPjtqAXyNjHOtfHl4uiWB4pVHmnScvzKbneUdtWG5TKc7ZBAuL478B"
+                    class="link-boton" aria-label="Ir a Ejemplo 1" target="_blank" rel="noopener noreferrer">SIMULATOR
+                    N°2</a>
+            </button>
+
+        </div>
+    </section>
+
+
+    <section id="proj" class="fade-in">
+        <h2 class="section-title">Variables for Calculating a Meteor’s Fall</h2>
+        <div class="projects-grid">
+            <div class="glass-card project-card">
+                <h3 style="color: var(--primary);">DENSITY</h3>
+                <p style="color: var(--text-secondary);">Density is the amount of mass an object has in
+                    relation to its volume, and it is typically expressed in kilograms per cubic meter (kg/m³).
+                    In the case of an asteroid impacting Earth, density is a key factor because:<br>
+
+                    * It determines the type of material the asteroid is made of (rocky, metallic, or icy).<br>
+                    * It affects its total mass, even if it is the same size as another, less dense asteroid.<br>
+                    * It influences the impact energy, since a higher density means more mass and therefore a more
+                    powerful collision.<br>
+
+                    In impact calculations, density is used together with size, velocity, and entry angle to estimate
+                    the released energy, the resulting crater, and the global effects of the impact.</p>
+            </div>
+            <div class="glass-card project-card">
+                <h3 style="color: var(--secondary);">DIAMETER</h3>
+                <p style="color: var(--text-secondary);">The diameter is the measurement of the total width of
+                    a spherical object, passing through its center. In calculations involving an asteroid
+                    falling to Earth, the diameter is used to:<br>
+
+                    * Determine the size of the asteroid.<br>
+                    * Calculate its volume (and, together with density, its total mass).<br>
+                    * Estimate the impact energy, since a larger asteroid releases much more energy upon collision.<br>
+
+                    In summary, the diameter directly influences the destructive force of the impact and the size of the
+                    crater it produces.</p>
+            </div>
+            <div class="glass-card project-card">
+                <h3 style="color: var(--accent);">ANGLE OF IMPACT</h3>
+                <p style="color: var(--text-secondary);">The impact angle is the angle at which an asteroid enters
+                    the atmosphere and strikes the Earth's surface, measured relative to the ground. In impact
+                    calculations,
+                    it is used to:<br>
+
+                    * Determine the shape and size of the crater (low angles produce more elongated craters).<br>
+                    * Estimate how much energy is transferred to the ground, since more vertical impacts are more
+                    destructive.<br>
+                    * Assess atmospheric effects, such as the dispersion of fragments or the shock wave.<br>
+
+                    The impact angle influences the intensity and distribution of the damage caused by the asteroid.</p>
+            </div>
+            <div class="glass-card project-card">
+                <h3 style="color: var(--primary);">IMPACT SPEED</h3>
+                <p style="color: var(--text-secondary);">Impact velocity is the speed at which the asteroid collides
+                    with Earth, typically measured in kilometers per second (km/s). In impact calculations, it is used
+                    to:<br>
+
+                    * Determine the energy released in the collision (higher velocity means greater energy).<br>
+                    * Calculate the temperature and pressure generated during the impact.<br>
+                    * Estimate the effects of the collision, such as the crater size, shock wave, and global damage.<br>
+
+                    In summary, impact velocity defines the destructive power of the asteroid upon striking Earth.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section id="projects" class="fade-in">
+        <h2 class="section-title">MITIGATION</h2>
+        <div class="projects-grid">
+            <div class="glass-card project-card">
+                <h3 style="color: var(--primary);">Early detection</h3>
+                <p style="color: var(--text-secondary);">Use telescopes and satellites to discover and track
+                    near-Earth asteroids. The earlier an asteroid is detected, the easier it is to divert.</p>
+            </div>
+            <div class="glass-card project-card">
+                <h3 style="color: var(--secondary);">Deflection methods (if there are decades of lead time)</h3>
+                <p style="color: var(--text-secondary);">Kinetic impactor: a spacecraft collides with the asteroid to
+                    nudge it slightly. Gravity tractor: a nearby spacecraft slowly attracts the asteroid using its
+                    gravity.
+                    Attached thrusters: engines installed on the asteroid to alter its trajectory. Controlled Yarkovsky
+                    effect:<br>
+                    modify how the asteroid reflects or emits heat so that its orbit changes over time.</p>
+            </div>
+            <div class="glass-card project-card">
+                <h3 style="color: var(--accent);">Fragmentation methods (if time is short)</h3>
+                <p style="color: var(--text-secondary);">Nearby nuclear explosion: heats and ejects material from the
+                    asteroid,
+                    altering its trajectory. Conventional explosives: less powerful, only effective for small objects.
+                </p>
+            </div>
+            <div class="glass-card project-card">
+                <h3 style="color: var(--primary);">Contingency plans (if the impact is unavoidable)</h3>
+                <p style="color: var(--text-secondary);">Evacuation of the impact zone. International coordination
+                    (UN, NASA, ESA) to minimize human and material damage.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="fade-in">
+        <h2 class="section-title">WHEN THE ASTEROID HITS THE EARTH</h2>
+        <div class="skills-grid">
+            <div class="skill-card glass-card">
+                <center><img src="Imagenes/concecuencias.png" style="width: 800px; height: 480px" alt="HTML5 Logo">
+                </center>
+                <h3 style="color: var(--accent);"></h3>
+                <p style="color: var(--text-secondary);"></p>
+            </div>
+        </div>
+
+        <div class="projects-grid">
+            <div class="glass-card project-card">
+                <h3 style="color: var(--secondary);">Consequences if the Impact is on Mainland</h3>
+                <p style="color: var(--text-secondary);">Massive crater and ejection: Formation of a hole several
+                    kilometers in diameter, ejecting rocks that cause secondary global impacts. Immediate local
+                    destruction:
+                    Vaporization of everything within the radius, with shock waves that topple buildings hundreds
+                    of kilometers away. Fires and terrestrial dust: Increased fires from dry vegetation,
+                    and dust clouds that locally darken the sky. Earthquakes and landslides: Induced tremors causing
+                    avalanches and subsidence in nearby mountains. Soil contamination: Release of heavy metals and
+                    radiation
+                    if the asteroid is metallic. Lower tsunami risk: Only local flooding if rivers or lakes are
+                    affected,
+                    but greater damage to densely populated continental areas.</p>
+            </div>
+            <div class="glass-card project-card">
+                <h3 style="color: var(--accent);">Consequences if the Impact is on Water (Ocean)</h3>
+                <p style="color: var(--text-secondary);">Giant tsunamis: Waves hundreds of meters high that flood
+                    coastlines thousands of kilometers away, causing more deaths than a land impact.
+                    Water vaporization: Steam explosions that deplete the ozone layer for years, increasing global UV
+                    radiation.
+                    Vapor clouds and rainfall: Climate disruptions with extreme storms and accelerated ocean
+                    acidification.
+                    Damage to marine life: Mass deaths of fish, corals, and plankton due to shock waves and
+                    contaminants.
+                    Smaller visible crater: Water cushions the impact but may trigger volcanic eruptions if tectonic
+                    plates are affected.
+                    Amplified coastal impacts: Higher risk for port cities, with soil salinization in agricultural areas
+                    and freshwater contamination.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="sk" class="fade-in">
+        <h2 class="section-title">DAMAGE AND EFFECT TABLE</h2>
+        <div class="skills-grid">
+
+            <div class="skill-card glass-card">
+                <img src="Imagenes/tabla de daño y efecto.png" style="width: 1000px; height: 430px"
+                    alt="JavaScript Logo">
+                <h3 style="color: var(--accent);"></h3>
+                <p style="color: var(--text-secondary);">In the table, you can see a brief overview of
+                    impacts throughout history.</p>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="skills" class="fade-in">
+        <h2 class="section-title">METEORS IMPACTED AND NEARBY</h2>
+        <div class="skills-grid">
+
+            <div class="skill-card glass-card">
+                <img src="Imagenes/chelyabinsk.jpg" style="width: 400px; height: 300px" alt="HTML5 Logo">
+                <h3 style="color: var(--accent);">Chelyabinsk (Rusia, 2013)</h3>
+                <p style="color: var(--text-secondary);">The Chelyabinsk event occurred on February 15, 2013, in Russia,
+                    when a meteor approximately 20 meters in diameter entered the Earth's atmosphere and exploded
+                    at an altitude of about 30 km. The shockwave damaged thousands of buildings and caused minor
+                    injuries
+                    to over 1,000 people, mainly from broken glass. It was the largest recorded impact since the
+                    Tunguska
+                    event in 1908 and highlighted the importance of monitoring near-Earth objects.</p>
+            </div>
+
+            <div class="skill-card glass-card">
+                <img src="Imagenes/2022 HX1.jpeg" style="width: 400px; height: 300px" alt="">
+                <h3 style="color: var(--accent);">Asteroid: (2022 HX1)</h3>
+                <p style="color: var(--text-secondary);">Asteroid 2022 HX1 is a near-Earth object (NEO) classified as an
+                    Apollo-type, meaning its orbit crosses that of our planet.
+                    It has an estimated size between 12 and 26 meters, comparable to a school bus.
+                    Its closest approach occurred on April 30, 2022, when it passed approximately 2.49 million
+                    kilometers from Earth, posing no impact risk.
+                    It orbits the Sun every 665 days (1.82 years), with a minimum distance of 0.84 AU and a maximum of
+                    2.15 AU.
+                    Although its trajectory brings it close to Earth, it is not considered potentially hazardous
+                    according to NASA simulations.</p>
+            </div>
+
+            <div class="skill-card glass-card">
+                <img src="Imagenes/Hoba (Namibia, descubierto en 1920).jpg" style="width: 600px; height: 300px"
+                    alt="JavaScript Logo">
+                <h3 style="color: var(--accent);">Hoba (Namibia, discovered in 1920)</h3>
+                <p style="color: var(--text-secondary);">The Hoba meteorite, discovered in Namibia in 1920,
+                    is the largest intact meteorite ever found on Earth. It weighs approximately 60 tons and is
+                    composed primarily of iron and nickel. It is estimated to have fallen around 80,000 years ago,
+                    but interestingly, it did not leave a crater, likely due to its low impact velocity.
+                    It currently remains at its discovery site and serves as a tourist attraction.</p>
+            </div>
+
+            <div class="skill-card glass-card">
+                <img src="Imagenes/Chicxulub (México, hace 66 millones de años).jpg" style="width: 600px; height: 300px"
+                    alt="">
+                <h3 style="color: var(--accent);">Chicxulub (Mexico, 66 million years ago)</h3>
+                <p style="color: var(--text-secondary);">The Chicxulub crater, located on the Yucatán Peninsula, Mexico,
+                    was formed approximately 66 million years ago by the impact of an asteroid about 10 km in diameter.
+                    This event caused a mass extinction, including the disappearance of the dinosaurs, by triggering
+                    global
+                    fires, tsunamis, and a prolonged climatic winter. It is one of the most catastrophic impacts in
+                    Earth's history.</p>
+            </div>
+
+            <div class="skill-card glass-card">
+                <img src="Imagenes/(2017 XO2).jpg" style="width: 600px; height: 300px" alt="">
+                <h3 style="color: var(--accent);">Asteroid: (2017 XO2)</h3>
+                <p style="color: var(--text-secondary);">Asteroid 2017 XO2 is an Apollo-type near-Earth object,
+                    discovered in December 2017. It has an estimated diameter of about 110 meters and an orbit that
+                    brings it periodically close to our planet. Although it was initially considered a potential
+                    impact risk, this was ruled out after more precise observations. Its next significant approach
+                    will occur in 2057, posing no danger.</p>
+            </div>
+
+            <div class="skill-card glass-card">
+                <img src="Imagenes/Barringer Crater (Arizona, EE. UU., hace ~50,000 años).jpg"
+                    style="width: 600px; height: 300px" alt="">
+                <h3 style="color: var(--accent);">Barringer Crater (Arizona, USA, ~50,000 years ago)</h3>
+                <p style="color: var(--text-secondary);">The Barringer Crater, also known as Meteor Crater,
+                    was formed approximately 50,000 years ago in Arizona, USA, by the impact of an iron meteorite
+                    about 50 meters in diameter. The crater is 1.2 km wide and 170 meters deep, making it one
+                    of the best-preserved in the world. It is clear evidence of the destructive power of cosmic impacts.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section id="about" class="fade-in">
+        <h2 class="section-title">INFORMATION</h2>
+        <div class="about-container">
+            <div class="about-image">
+                <div class="profile-img-wrapper">
+                    <div class="profile-img">
+                        <span>SE</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-content">
+                <h3>Cluster "Special Engieers"</h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
+                    We are first-year Mechatronics Engineering students at FICA, united by our passion for science,
+                    technology, and space.
+                    We formed a team to participate in the "NASA International Space Apps Challenge," an opportunity to
+                    apply our knowledge, creativity, and teamwork to real-world challenges. Although we are at the
+                    beginning of our academic journey, we are committed to innovation and continuous learning, aiming to
+                    contribute solutions that showcase the potential of Argentine students in the scientific and
+                    technological fields.
+
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary);">
+                    MEMBERS
+                </p>
+                <div class="about-stats">
+
+                    <div class="stat-card">
+                        <div class="stat-number">
+                            <a href="https://www.instagram.com/barlarosebastian?igsh=NW8xamZxZG9scnZ1" target="_blank">🦝</a>
+                        </div>
+                        <div class="stat-label">SEBASTIAN BARLARO</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">
+                            <a href="https://www.instagram.com/irina_aruguete?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">💙</a>
+                        </div>
+                        <div class="stat-label">IRINA ARUGUETE</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">
+                            <a href="https://www.instagram.com/janomolina_ok/?utm_source=ig_web_button_share_sheet" target="_blank">🧉</a>
+                        </div>
+                        <div class="stat-label">JANO MOLINA</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">
+                            <a href="https://www.instagram.com/ann_.gx/?utm_source=ig_web_button_share_sheet" target="_blank">🌷</a>
+                        </div>
+                        <div class="stat-label">ANGELINA MENDEZ</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">
+                            <a href="https://www.instagram.com/jonasvillegass?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">🌟</a>
+                        </div>
+                        <div class="stat-label">JONAS VILLEGAS</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">
+                            <a href="https://www.instagram.com/nehu_en_?igsh=cmdtZ280M2U2M3kz" target="_blank">🐶</a>
+                        </div>
+                        <div class="stat-label">NEHUÉN VILLALOBOS </div>
+                    </div>
+
+                    
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="contact" class="fade-in">
+        <h2 class="section-title">COMMENTS</h2>
+
+        <div class="comments-container glass-card">
+
+            <!-- Campo para nuevo comentario -->
+            <div class="comment-input">
+                <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="user" class="user-avatar"
+                    style="width: 100px; height: 90px;">
+                <div class="input-area">
+                    <div class="form-group">
+                        <input type="text" placeholder="Name" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="5" placeholder="Message" required></textarea>
+                    </div>
+                    <button id="sendComment" class="neural-btn">Send</button>
+                </div>
+            </div>
+
+            <!-- Lista de comentarios -->
+            <div id="commentList" class="comment-list">
+
+                <!-- Ejemplo de comentarios precargados -->
+                <div class="form-group">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" alt="avatar" class="avatar"
+                        style="width: 80px; height: 80px;">
+                    <div class="form-group">
+                        <div class="comment-name">Lucía Martínez</div>
+                        <div class="comment-text">Increíble proyecto 🌍✨ ¡Me encantó la simulación!</div>
+                        <button id="sendComment" class="neural-btn">Responder</button>
+                        <div class="replies">
+                            <div class="comment reply">
+                                <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="avatar"
+                                    class="avatar" style="width: 80px; height: 80px;">
+                                <div class="comment-content">
+                                    <div class="comment-name">Special Engieers</div>
+                                    <div class="comment-text">¡Gracias Lucía! 😄 Estamos felices de que te guste.</div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4140/4140061.png" alt="avatar" class="avatar"
+                        style="width: 80px; height: 80px;">
+                    <div class="comment-content">
+                        <div class="comment-name">Carlos Vega</div>
+                        <div class="comment-text">Sería genial agregar meteoritos de diferentes composiciones 😎☄️</div>
+                        <button id="sendComment" class="neural-btn">Responder</button>
+                        <div class="replies"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="#home">PRINCIPLE</a></li>
+                    <li><a href="#projects">MITIGATION</a></li>
+                    <li><a href="#skills">METEORS</a></li>
+                    <li><a href="#about">INFORMATION</a></li>
+                    <li><a href="#contact">COMMENTS</a></li>
+                </ul>
+            </div>
+
+
+
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 10px;">
+                    Let's build something amazing together
+                </p>
+                <div class="social-links">
+                    <a href="#" aria-label="GitHub">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12" />
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2048 Report of the "special engieers" group. -METEORO MADDNES<a href="https://www.tooplate.com"
+                    rel="nofollow noopener">Asteroidal Impact Simulation</a></p>
+        </div>
+    </footer>
+    <script src="scripts.js"></script>
+
+</body>
+
+</html>
